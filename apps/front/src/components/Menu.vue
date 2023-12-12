@@ -1,15 +1,48 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const components = [
+  'Monsters',
+  'Locations',
+  'Awards',
+  'Weapons',
+  'Armors',
+  'Decorations',
+  'Horn Melodies',
+  'Kinsects',
+  'Bowgun Ammo',
+  'Palico Weapons',
+  'Palico Armors',
+];
+</script>
 
 <template>
-  <div class="menu">Menu</div>
+  <nav class="menu">
+    <ul class="menu">
+      <li v-for="component in components" :key="component" class="menu__item">
+        <img :src="component.toLocaleLowerCase() + '.png'" :alt="component + ' link image'" />
+        <router-link :to="`/${component.toLowerCase()}`">
+          {{ component }}
+        </router-link>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <style scoped lang="scss">
 .menu {
-  background-color: red;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
 
   &__item {
-    background-color: blue;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 }
 </style>
