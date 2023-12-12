@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import './styles.css';
+import './reset.scss';
 import App from './App.vue';
 import router from './router';
 import { VueQueryPlugin } from '@tanstack/vue-query';
